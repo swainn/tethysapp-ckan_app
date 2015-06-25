@@ -1,0 +1,13 @@
+{% extends "ckan_app/base.html" %}
+{% load tethys_gizmos %}
+
+{% block app_content %}
+    <h1>Forecasts</h1>
+    <h3>Watershed: {{ title }}</h3>
+    <h3>Issued at: {{ pretty_time }}</h3>
+
+    {% for button in buttons %}
+        {% gizmo button button %}
+    {% endfor %}
+
+{% endblock %}

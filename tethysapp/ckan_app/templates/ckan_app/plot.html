@@ -1,0 +1,11 @@
+{% extends "ckan_app/base.html" %}
+{% load tethys_gizmos %}
+
+{% block app_content %}
+    <h1>Streamflow Forecast</h1>
+    <h6>Watershed: {{ title }}</h6>
+    <h6>Issued at: {{ pretty_time }}</h6>
+    <h6>Forecast Number: {{ forecast_number }}</h6>
+
+    {% gizmo highcharts_plot_view time_series_plot %}
+{% endblock %}

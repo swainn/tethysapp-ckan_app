@@ -1,0 +1,21 @@
+{% extends "ckan_app/base.html" %}
+{% load tethys_gizmos %}
+
+{% block app_content %}
+  <h1>NFIE Watersheds</h1>
+  <form action="" method="post">
+  	{% csrf_token %}
+
+  	{% if selected_watershed %}
+  		<b>Watershed</b>
+  		<h5>{{ selected_watershed }}</h5>
+  	{% else %}
+  		{% gizmo select_input select_options %}
+  	{% endif %}
+
+  	{% if show_time %}
+  		{% gizmo select_input time_select_options %}
+  	{% endif %}
+  	<input name="submit" type="submit" class="btn btn-default">
+  </form>
+{% endblock %}
